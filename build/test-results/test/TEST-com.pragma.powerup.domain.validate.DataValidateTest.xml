@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pragma.powerup.domain.validate.DataValidateTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2025-04-30T05:08:58.847Z" hostname="LAPTOP-AQLHI8OD" time="0.035">
+  <properties/>
+  <testcase name="validateDataNotNull_shouldThrowWhenFieldIsNull()" classname="com.pragma.powerup.domain.validate.DataValidateTest" time="0.007"/>
+  <testcase name="validateNameRestaurant_shouldPassForValidName()" classname="com.pragma.powerup.domain.validate.DataValidateTest" time="0.004"/>
+  <testcase name="validateDataNotNull_shouldPassWhenAllFieldsAreValid()" classname="com.pragma.powerup.domain.validate.DataValidateTest" time="0.001"/>
+  <testcase name="validateNameRestaurant_shouldThrowForInvalidName()" classname="com.pragma.powerup.domain.validate.DataValidateTest" time="0.002"/>
+  <testcase name="validateOnlyNumbers_shouldThrowForInvalidNumber()" classname="com.pragma.powerup.domain.validate.DataValidateTest" time="0.002"/>
+  <testcase name="validateDataNotNull_shouldSkipOptionalField()" classname="com.pragma.powerup.domain.validate.DataValidateTest" time="0.002"/>
+  <testcase name="validatePhoneNumber_shouldThrowForInvalidPhone()" classname="com.pragma.powerup.domain.validate.DataValidateTest" time="0.002"/>
+  <testcase name="validateOnlyNumbers_shouldPassForValidNumber()" classname="com.pragma.powerup.domain.validate.DataValidateTest" time="0.002"/>
+  <testcase name="validatePhoneNumber_shouldPassForValidPhone()" classname="com.pragma.powerup.domain.validate.DataValidateTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
