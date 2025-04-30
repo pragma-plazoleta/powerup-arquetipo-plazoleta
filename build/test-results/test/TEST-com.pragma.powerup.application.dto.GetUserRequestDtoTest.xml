@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pragma.powerup.application.dto.GetUserRequestDtoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-04-30T05:08:58.223Z" hostname="LAPTOP-AQLHI8OD" time="0.032">
+  <properties/>
+  <testcase name="dtoGetterAndSetterTest()" classname="com.pragma.powerup.application.dto.GetUserRequestDtoTest" time="0.032"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

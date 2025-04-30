@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pragma.powerup.application.handler.imlp.RestaurantHandlerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-04-30T05:08:58.281Z" hostname="LAPTOP-AQLHI8OD" time="0.417">
+  <properties/>
+  <testcase name="saveRestaurant()" classname="com.pragma.powerup.application.handler.imlp.RestaurantHandlerTest" time="0.417"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

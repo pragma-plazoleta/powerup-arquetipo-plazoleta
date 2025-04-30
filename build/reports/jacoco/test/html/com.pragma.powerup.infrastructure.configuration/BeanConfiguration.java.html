@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BeanConfiguration.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">power-up-arquetipo</a> &gt; <a href="index.source.html" class="el_package">com.pragma.powerup.infrastructure.configuration</a> &gt; <span class="el_source">BeanConfiguration.java</span></div><h1>BeanConfiguration.java</h1><pre class="source lang-java linenums">package com.pragma.powerup.infrastructure.configuration;
+
+import com.pragma.powerup.domain.api.IRestaurantServicePort;
+import com.pragma.powerup.domain.spi.IRestaurantPersistencePort;
+import com.pragma.powerup.domain.spi.IUserServicePort;
+import com.pragma.powerup.domain.usecase.RestaurantUseCase;
+import com.pragma.powerup.domain.validate.DataValidate;
+import com.pragma.powerup.infrastructure.out.jpa.adapter.RestaurantJpaAdapter;
+import com.pragma.powerup.infrastructure.out.jpa.mapper.IRestaurantEntityMapper;
+import com.pragma.powerup.infrastructure.out.jpa.repository.IRestaurantRepository;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class BeanConfiguration {
+
+    private final IUserServicePort userServicePort;
+    private final DataValidate dataValidate;
+    private final IRestaurantRepository restaurantRepository;
+    private final IRestaurantEntityMapper restaurantEntityMapper;
+
+<span class="nc" id="L22">    public BeanConfiguration(IUserServicePort userServicePort, DataValidate dataValidate, IRestaurantRepository restaurantRepository, IRestaurantEntityMapper restaurantEntityMapper) {</span>
+<span class="nc" id="L23">        this.userServicePort = userServicePort;</span>
+<span class="nc" id="L24">        this.dataValidate = dataValidate;</span>
+<span class="nc" id="L25">        this.restaurantRepository = restaurantRepository;</span>
+<span class="nc" id="L26">        this.restaurantEntityMapper = restaurantEntityMapper;</span>
+<span class="nc" id="L27">    }</span>
+
+    @Bean
+    public IRestaurantPersistencePort restaurantPersistencePort() {
+<span class="nc" id="L31">        return new RestaurantJpaAdapter(restaurantRepository, restaurantEntityMapper);</span>
+    }
+
+    @Bean
+    public IRestaurantServicePort restaurantServicePort() {
+<span class="nc" id="L36">        return new RestaurantUseCase(userServicePort, dataValidate, restaurantPersistencePort());</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DataValidate.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">power-up-arquetipo</a> &gt; <a href="index.source.html" class="el_package">com.pragma.powerup.domain.validate</a> &gt; <span class="el_source">DataValidate.java</span></div><h1>DataValidate.java</h1><pre class="source lang-java linenums">package com.pragma.powerup.domain.validate;
+
+import com.pragma.powerup.domain.util.Constants;
+import org.springframework.stereotype.Component;
+
+import java.lang.reflect.Field;
+import java.util.Arrays;
+import java.util.List;
+
+@Component
+<span class="nc" id="L11">public class DataValidate {</span>
+
+    public static void validateDataNotNull (Object object, String... fieldsToValidate) {
+<span class="nc bnc" id="L14" title="All 2 branches missed.">        if (object == null){</span>
+<span class="nc" id="L15">            throw new IllegalArgumentException(Constants.NULL_OR_EMPTY);</span>
+        }
+
+<span class="nc" id="L18">        List&lt;String&gt; fieldsList = Arrays.asList(fieldsToValidate);</span>
+<span class="nc" id="L19">        Field[] fields = object.getClass().getDeclaredFields();</span>
+
+<span class="nc bnc" id="L21" title="All 2 branches missed.">        for (Field field : fields) {</span>
+<span class="nc bnc" id="L22" title="All 4 branches missed.">            if (!fieldsList.isEmpty() &amp;&amp; fieldsList.contains(field.getName())){</span>
+<span class="nc" id="L23">                continue;</span>
+            }
+
+<span class="nc" id="L26">            field.setAccessible(true);</span>
+
+            try {
+<span class="nc" id="L29">                Object value = field.get(object);</span>
+<span class="nc bnc" id="L30" title="All 6 branches missed.">                if (value == null || (value instanceof String &amp;&amp; ((String) value).isBlank())) {</span>
+<span class="nc" id="L31">                    throw new IllegalArgumentException(Constants.FIELD_NULL+field.getName());</span>
+                }
+<span class="nc" id="L33">            } catch (IllegalAccessException e) {</span>
+<span class="nc" id="L34">                throw new RuntimeException(Constants.MESSAGE_ERROR_GET_FIELD+field.getName(), e);</span>
+<span class="nc" id="L35">            }</span>
+        }
+<span class="nc" id="L37">    }</span>
+
+    public void validateOnlyNumbers(String data, String fieldName) {
+<span class="nc bnc" id="L40" title="All 2 branches missed.">        if (!data.matches(Constants.ONLY_NUMBERS)){</span>
+<span class="nc" id="L41">            throw new IllegalArgumentException(Constants.INVALID_FIELD_ONLY_NUMBER+ fieldName);</span>
+        }
+<span class="nc" id="L43">    }</span>
+
+    public void validatePhoneNumber (String phone) {
+<span class="nc bnc" id="L46" title="All 4 branches missed.">        if (phone.length() &gt; Constants.MAX_LENGTH_PHONE || !phone.matches(Constants.VALIDATE_PHONE_NUMBER)){</span>
+<span class="nc" id="L47">            throw new IllegalArgumentException(Constants.INVALID_PHONE_NUMBER);</span>
+        }
+<span class="nc" id="L49">    }</span>
+
+    public void validateNameRestaurant (String nameRestaurant) {
+<span class="nc bnc" id="L52" title="All 2 branches missed.">        if (!nameRestaurant.matches(Constants.NAME_OF_RESTAURANT)){</span>
+<span class="nc" id="L53">            throw new IllegalArgumentException(Constants.INVALID_NAME_RESTAURANT);</span>
+        }
+<span class="nc" id="L55">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

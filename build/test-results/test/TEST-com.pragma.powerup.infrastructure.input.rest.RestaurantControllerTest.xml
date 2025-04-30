@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pragma.powerup.infrastructure.input.rest.RestaurantControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-04-30T05:08:58.887Z" hostname="LAPTOP-AQLHI8OD" time="0.035">
+  <properties/>
+  <testcase name="saveRestaurant()" classname="com.pragma.powerup.infrastructure.input.rest.RestaurantControllerTest" time="0.035"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
